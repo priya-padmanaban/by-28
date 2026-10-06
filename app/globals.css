@@ -1,0 +1,255 @@
+:root {
+  color-scheme: light;
+  --paper: #f6f0e5;
+  --ink: #302820;
+  --rust: #8c412e;
+  --olive: #616544;
+  --line: #c6b9a5;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+main {
+  max-width: 700px;
+  margin: auto;
+  padding: 24px 20px calc(64px + env(safe-area-inset-bottom));
+  overflow-wrap: anywhere;
+}
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 40px;
+  font-family: Georgia, serif;
+}
+.masthead span {
+  letter-spacing: 0.08em;
+}
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+  font-weight: 400;
+}
+h1 {
+  font-size: clamp(2.25rem, 8vw, 3.6rem);
+  margin: 20px 0 28px;
+}
+h2 {
+  font-size: 1.6rem;
+  margin-top: 36px;
+}
+h3 {
+  font-size: 1.3rem;
+}
+p {
+  white-space: pre-wrap;
+  margin: 20px 0;
+}
+.subtitle {
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+  color: var(--rust);
+}
+button {
+  font: inherit;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 12px 20px;
+  border: 1px solid var(--rust);
+  background: var(--rust);
+  color: #fff9ee;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 8px 8px 8px 0;
+  overflow-wrap: anywhere;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.text-button {
+  color: var(--rust);
+  background: transparent;
+  border: 0;
+  text-decoration: underline;
+  padding: 8px;
+  font-size: 0.9rem;
+}
+.eyebrow,
+.meta,
+.note,
+legend {
+  font-size: 0.9rem;
+  color: #655848;
+}
+.eyebrow {
+  letter-spacing: 0.08em;
+}
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+progress {
+  width: 100%;
+  height: 3px;
+  accent-color: var(--olive);
+}
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 28px 0;
+}
+legend {
+  margin-bottom: 12px;
+}
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  margin: 14px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 64px;
+  background: #fcf8f0;
+}
+.choice.chosen {
+  border: 2px solid var(--rust);
+  padding: 19px;
+  background: #efe1d1;
+}
+.choice input {
+  margin-top: 7px;
+  accent-color: var(--rust);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.choice small {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--rust);
+}
+.memory {
+  border-left: 3px solid var(--rust);
+  padding: 4px 0 4px 22px;
+  margin: 30px 0;
+}
+.selected-choice {
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+.questions {
+  display: grid;
+  gap: 8px;
+}
+.questions button {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+  text-align: left;
+  margin: 0;
+}
+.questions button[aria-pressed="true"] {
+  border: 2px solid var(--rust);
+  background: #efe1d1;
+}
+dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+}
+dd {
+  margin: 0;
+}
+.timeline {
+  list-style: none;
+  padding: 0;
+  border-left: 1px solid var(--line);
+}
+.timeline li {
+  padding: 16px 0 32px 20px;
+  border-bottom: 1px solid var(--line);
+}
+aside {
+  padding: 20px;
+  background: #eadbca;
+  border: 1px solid var(--rust);
+}
+dialog {
+  max-width: min(600px, calc(100% - 32px));
+  background: var(--paper);
+  color: var(--ink);
+  padding: 28px;
+  border: 1px solid var(--line);
+}
+dialog::backdrop {
+  background: #30282099;
+}
+:focus-visible {
+  outline: 3px solid var(--olive);
+  outline-offset: 5px;
+}
+h1:focus {
+  outline: none;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+section {
+  animation: arrive 0.18s ease-out;
+}
+@keyframes arrive {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  section {
+    animation: none;
+  }
+}
+@media (min-width: 900px) {
+  .questions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 360px) {
+  main {
+    padding-inline: 16px;
+  }
+  button {
+    padding-inline: 14px;
+  }
+  dl > div {
+    display: block;
+  }
+}
